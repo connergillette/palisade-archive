@@ -30,18 +30,35 @@ export const loader: LoaderFunction = async ({ request }: LoaderArgs) => {
   )
   const { data: { session }} = await supabase.auth.getSession()
 
+  const { data: campaigns } = await supabase.from('campaigns').select()
+
   /// ...resolve loader
 
-  return json({ session })
+  return json({ campaigns, session })
 }
 
 export default function Index() {
-  const { session } = useLoaderData()
+  const { campaigns, session } = useLoaderData()
   const actionData = useActionData()
 
-  return (
-    <div>
-      <h1 className="text-2xl w-full text-center pt-10">Coming soon.</h1>
-    </div>
-  );
+  if (session) {
+    return (
+      <div className="flex flex-col gap-2 py-10">
+        {
+          campaigns.map(campaign => (
+            <div className="flex gap-20 align-middle" key={`campaign-${campaign.id}`}>
+              <h2 className="text-2xl font-bold">{campaign.name}</h2>
+              <div className="flex gap-10 h-full my-auto">
+                <span>{campaign.dm_name}</span>
+                <span>{campaign.time_descriptor}</span>
+                <span>{campaign.location_descriptor}</span>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    );
+  }
+
+  return <div className="italic text-5xl text-center my-24">Coming soon.</div>
 }
