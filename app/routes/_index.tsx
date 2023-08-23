@@ -41,7 +41,7 @@ export default function Index() {
 
   return (
     <div>
-      <h1 className="text-2xl w-full text-center pt-10">Welcome to Project Name!</h1>
+      <h1 className="text-2xl w-full text-center pt-10">Coming soon.</h1>
     </div>
   );
 }
