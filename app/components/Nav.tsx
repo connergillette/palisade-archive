@@ -7,7 +7,7 @@ export default function Nav({ signOut, session }: Props) {
   return (
     <div className="fixed flex align-middle w-8/12 min-w-[900px] max-md:w-11/12 max-md:min-w-[300px] mx-auto h-14 z-20">
       <a href="/" className="py-3">
-        <div className={`font-bold italic text-3xl align-middle py-1 transition`}>Palisade Archive</div>
+        <div className={`font-bold italic text-3xl align-middle py-1 transition text-yellow-200`}>Palisade Archive</div>
       </a>
       <div className="flex justify-end align-middle gap-2 grow py-2">
         {
