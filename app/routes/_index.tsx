@@ -43,14 +43,14 @@ export default function Index() {
   const { campaigns, oneShots, session } = useLoaderData()
   const actionData = useActionData()
 
-  if (session) {
+  // if (session) {
     return (
-      <div className="flex flex-col gap-2 py-10">
-        <div className="gap-2">
+      <div className="flex flex-col gap-10 py-10">
+        <div className="flex flex-col gap-4">
           <h1 className="text-4xl font-bold text-zinc-700">Campaigns</h1>
           <CampaignList campaigns={campaigns} />
         </div>
-        <div className="gap-2">
+        <div className="flex flex-col gap-4">
           <h1 className="text-4xl font-bold text-zinc-700">One-Shots</h1>
           <CampaignList campaigns={oneShots} />
         </div>
@@ -58,5 +58,5 @@ export default function Index() {
     );
   }
 
-  return <div className="italic text-5xl text-center my-24">Coming soon.</div>
-}
+//   return <div className="italic text-5xl text-center my-24">Coming soon.</div>
+// }
